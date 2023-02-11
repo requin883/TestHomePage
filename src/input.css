@@ -61,3 +61,24 @@
 body {
     font-family: 'Futura PT Medium', "Arial";
 }
+
+#positioned {
+    left: 1.5em;
+    top: 0.5em;
+}
+
+.card-img-size {
+    width: 300px;
+    height: auto;
+}
+
+
+.logo-size {
+    width: 160px;
+    height: auto;
+}
+
+.add-buttons:hover {
+    background-color: white;
+    color: black;
+}
