@@ -6,7 +6,11 @@ module.exports = {
       'header': ['Futura PT Medium', 'Arial'],
       'para': ['Futura PT Book', 'Arial']
     },
-    extend: {},
+    extend: {
+      colors: {
+        'yellow': '#EBFF07'
+      },
+    },
   },
   plugins: [],
 }
