@@ -4,6 +4,7 @@ const items = document.querySelectorAll(".carousel-item");
 const btns = Array.from(items, () => {
     return `<span class="carousel-btn"></span>`;
 });
+let intervalValue;
 const querySlides = document.querySelectorAll(".slide");
 const slides = document.getElementsByClassName("slide");
 const sliders = document.querySelectorAll(".slider");
@@ -15,8 +16,13 @@ const activateSliders = () => {
     sliders.forEach(slider => slider.insertAdjacentHTML("beforeend", `<span class="slide-underline"></span>`))
     slides[0].classList.add('selected-slide');
 }
+
+const getSlideUnderlines = () => {
+    return document.querySelectorAll(".slide-underline");
+}
+
 const slidesAnimation = () => {
-    const slidesInterval = setInterval(function () {
+    intervalValue = setInterval(function () {
         for (var i = 0; i < slides.length; i++) {
             if (i + 1 == slides.length) {
                 slides[i].classList.remove('selected-slide');
@@ -30,6 +36,7 @@ const slidesAnimation = () => {
             }
         }
     }, 4000);
+
 }
 //Insert Carousel Nav and buttons
 
@@ -44,6 +51,7 @@ const addedBtns = document.querySelectorAll(".carousel-btn");
 
 const smallScreenChange = () => {
     activateSliders();
+    getSlideUnderlines();
     slidesAnimation();
     removeItems(addedBtns, "hide-btn");
     addedBtns.forEach((btn, index) => {
@@ -59,9 +67,11 @@ const smallScreenChange = () => {
 const bigScreenChange = () => {
     querySlides.forEach(slide => {
         slide.classList.remove("selected-slide");
-        slide.classList.remove("slide-underline");
     });
-    clearInterval(slidesInterval);
+    getSlideUnderlines().forEach(underline => {
+        underline.classList.remove("slide-underline");
+    })
+    clearTimeout(intervalValue);
     removeItems(items, "item-selected");
     addedBtns.forEach(btn => btn.classList.add("hide-btn"));
 
