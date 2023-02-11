@@ -16,7 +16,7 @@ const activateSliders = () => {
     slides[0].classList.add('selected-slide');
 }
 const slidesAnimation = () => {
-    setInterval(function () {
+    const slidesInterval = setInterval(function () {
         for (var i = 0; i < slides.length; i++) {
             if (i + 1 == slides.length) {
                 slides[i].classList.remove('selected-slide');
@@ -57,7 +57,11 @@ const smallScreenChange = () => {
 }
 
 const bigScreenChange = () => {
-    querySlides.forEach(slide => slide.classList.remove("selected-slide"));
+    querySlides.forEach(slide => {
+        slide.classList.remove("selected-slide");
+        slide.classList.remove("slide-underline");
+    });
+    clearInterval(slidesInterval);
     removeItems(items, "item-selected");
     addedBtns.forEach(btn => btn.classList.add("hide-btn"));
 
