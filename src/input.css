@@ -82,3 +82,55 @@ body {
     background-color: white;
     color: black;
 }
+
+.carousel-nav {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+
+.carousel-btn {
+    cursor: pointer;
+    display: inline-block;
+    width: 0.75rem;
+    margin: 0.15rem;
+    height: 0.75rem;
+    border: 2px rgb(156 163 175) solid;
+    border-radius: 50%;
+}
+
+.carousel-item {
+    display: none;
+}
+
+.item-selected {
+    display: block;
+}
+
+.btn-selected {
+    background-color: rgb(156 163 175);
+}
+
+.product-btn:hover {
+    background: rgb(156 163 175);
+    color: white;
+}
+
+.hide-btn {
+    display: none;
+}
+
+@media only screen and (min-width: 600px) {
+    .carousel-item {
+        display: block;
+        background-color: #fff;
+    }
+
+    .flexor-div {
+        display: flex;
+    }
+}
